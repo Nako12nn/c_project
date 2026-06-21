@@ -1,36 +1,46 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 
 int main() {
 
+    //int x = -79;
+    //for(int i=10; i<=80; i++){
+        //printf("Elements: %d\n", x+i);}
+
+    // int i = 50;
+    // while (i > 20)
+    // {
+    //     printf("This %d\n", i);
+    //     i--;
+    // }
     
-    char nul[3] = {'l', 'o', 'x'};
-    printf("next: %c", nul[0]);
-    printf("%c", nul[1]);
-    printf("%c \n", nul[2]);
+    // bool ready = false;
+    // while (!ready){
+    //     printf("enter 0 or 1: \n");
+    //     int x;
+    //     scanf("%d", &x);
+    //     if (x==1) ready = true; 
+    // }
 
-    char word[] = "You dont know me!";
-    printf("First: %s\n", word);
+    // int x = 104;
+    // do
+    // {
+    //     if (x<=101)
+    //     {
+    //         printf("it is less than 100\n");
+    //     }
+    //     else if (x>100) printf("It is bigger than 100\n");
+        
+    // } while (x < 10);
 
+    int x = 4;
+    do {
+        printf("This: %d\n", x);
+        x++;
+    } while (x > 20);
+    
 
-    int ar2[2][2] = {
-        {8, 3},
-        {9, 4}
-    };
-
-    int row = 2;
-    int column = 2;
-
-    for(int i=0; i<row; i++){
-        for(int j=0; j<column; j++){
-            printf("%d", ar2[i][j]);
-        }
-        printf("\n");
-    } 
- 
 
     return 0;
 }
-// I got it
-
-// Does it work like I think?
