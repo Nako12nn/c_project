@@ -1,37 +1,23 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
 
-    // FILE* file = fopen("test.txt", "a");
-    // fprintf(file, "\n The second line or bar ");
-    // fclose(file);
-    
-    // FILE *file2 = fopen("test.txt", "r"); 
-    // char lay[200]; 
-    // fgets(lay, 200, file2);
-    // printf("%s", lay);
-    // fgets(lay, 200, file2);
-    // printf("%s", lay);
-    // fclose(file2);
 
+    int fahr, celsius;
+    int lower, upper, step;
 
-    FILE* file = fopen("test.txt", "r");
+    lower = 0;
+    upper = 100;
+    step = 2;
 
-    if (file == NULL)
+    fahr = lower;
+    while (fahr<=upper)
     {
-        printf("Error, it seeems that this file does not exist.\n");
-        return 1;
+        celsius = 5 * (fahr-32)/9;
+        printf("%d = %d \n", fahr, celsius);
+        fahr = fahr + step;
     }
     
-    int the_info;
-    
-    while ((the_info = fgetc(file)) != EOF)
-    {
-        putchar(the_info);
-    }
-    
-   fclose(file);
 
     return 0;
 }
