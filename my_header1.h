@@ -11,4 +11,13 @@ void add(float a, float b){
     res_info(result);
 }
 
+void string(char array[]){
+    printf("%s\n", array);
+}
+
+int mult(int a, int b){
+    int x = a * b;
+    return x;
+}
+
 #endif /* MY_HEADER_H */
