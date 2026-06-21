@@ -1,25 +1,37 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Somethit
-{
-    float width, height;
-};
-
-void culc(struct Somethit *obj);
-
 int main() {
 
-    struct Somethit rectangle = {9, 12};
-    culc(&rectangle);
-    //float area_of_rect = area(12, 16);
-    //printf("Area of rect: %.0f\n", area_of_rect);
+    // FILE* file = fopen("test.txt", "a");
+    // fprintf(file, "\n The second line or bar ");
+    // fclose(file);
+    
+    // FILE *file2 = fopen("test.txt", "r"); 
+    // char lay[200]; 
+    // fgets(lay, 200, file2);
+    // printf("%s", lay);
+    // fgets(lay, 200, file2);
+    // printf("%s", lay);
+    // fclose(file2);
+
+
+    FILE* file = fopen("test.txt", "r");
+
+    if (file == NULL)
+    {
+        printf("Error, it seeems that this file does not exist.\n");
+        return 1;
+    }
+    
+    int the_info;
+    
+    while ((the_info = fgetc(file)) != EOF)
+    {
+        putchar(the_info);
+    }
+    
+   fclose(file);
+
     return 0;
 }
-
-void culc(struct Somethit *obj){
-    float result = obj->width * obj->height;
-    printf("Area: %.0f\n", result);
-
-}
-
