@@ -1,25 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    // for(int i=1; i<=13; i++){
-    //     if (i == 8) break;
-    //     else if (i == 6 || i == 2 || i == 4) continue;
-    //     printf("Elements: %d\n", i);
-    // }
-    //int arrey[4] = {6, 5, 4, 3};
-    
     int arrey[4][4] = {
         {26, 35, 64, 8},
         {25, 40, 80, 7},
-        {14, 36, 77, 4},
-        {84, 98, 31, 30}  };
+        {14, 36, 77, -7},
+        {84, 98, 31, 30} };
     int rows = 4;
     int columns = 4;
-
-    int max = 0;
-    int min = 0;
+    int max = arrey[0][0];
+    int min = arrey[0][0];
     printf("The arrey: \n");
-
+    
+    
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
@@ -28,8 +21,6 @@ int main() {
         }
         printf("\n");
     }
-    printf("\n");
-
 
     for (int i = 0; i < rows; i++)
     {
@@ -39,8 +30,18 @@ int main() {
             if (max <= arrey[i][j]) max = arrey[i][j];        
         }
     }
-    printf("Max number of the arrey: %d\n", max);
     
-
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            if (min >= arrey[i][j]) min = arrey[i][j];
+            else continue;
+        }
+    }
+    
+    printf("\n");    
+    printf("Max number of the arrey: %d\n", max);
+    printf("Min number of the arrey: %d\n", min);
     return 0;
 }
