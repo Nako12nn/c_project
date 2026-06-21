@@ -1,46 +1,46 @@
 #include <stdio.h>
-#include <stdbool.h>
-#include <math.h>
 
 int main() {
-
-    //int x = -79;
-    //for(int i=10; i<=80; i++){
-        //printf("Elements: %d\n", x+i);}
-
-    // int i = 50;
-    // while (i > 20)
-    // {
-    //     printf("This %d\n", i);
-    //     i--;
+    // for(int i=1; i<=13; i++){
+    //     if (i == 8) break;
+    //     else if (i == 6 || i == 2 || i == 4) continue;
+    //     printf("Elements: %d\n", i);
     // }
+    //int arrey[4] = {6, 5, 4, 3};
     
-    // bool ready = false;
-    // while (!ready){
-    //     printf("enter 0 or 1: \n");
-    //     int x;
-    //     scanf("%d", &x);
-    //     if (x==1) ready = true; 
-    // }
+    int arrey[4][4] = {
+        {26, 35, 64, 8},
+        {25, 40, 80, 7},
+        {14, 36, 77, 4},
+        {84, 98, 31, 30}  };
+    int rows = 4;
+    int columns = 4;
 
-    // int x = 104;
-    // do
-    // {
-    //     if (x<=101)
-    //     {
-    //         printf("it is less than 100\n");
-    //     }
-    //     else if (x>100) printf("It is bigger than 100\n");
-        
-    // } while (x < 10);
+    int max = 0;
+    int min = 0;
+    printf("The arrey: \n");
 
-    int x = 4;
-    do {
-        printf("This: %d\n", x);
-        x++;
-    } while (x > 20);
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            printf("%d, ", arrey[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            if (max >= arrey[i][j]) continue;
+            if (max <= arrey[i][j]) max = arrey[i][j];        
+        }
+    }
+    printf("Max number of the arrey: %d\n", max);
     
-
 
     return 0;
 }
