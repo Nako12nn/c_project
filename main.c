@@ -1,43 +1,21 @@
 #include <stdio.h>
 #include <string.h>
 
-
-void show_num(char x){
-    printf("%c \n", x);
-}
-
 int main() {
     
-    // char arr1 [] = "This file is mine ";
-    // for (int i = 0; i < strlen(arr1); i++)
-    // {
-    //     putchar(arr1[i]);
-    // }
+    // long double x;
+    // unsigned short y; 
+    // printf("x before: %Lf\n", x);
+    // printf("y before: %d\n", y);
     // printf("\n");
-    // printf("%s", arr1);
+    // int count = scanf("%Lg\n %hd", &x, &y);
+    // printf("x after: %.0Lf\ny after: %d\nthe amount of scanned signs: %d\n", x, y, count);
 
-    // char new [] = getchar();
-    // for (int i = 0; i < strlen(new); i++)
-    // {
-    //     putchar(new[i]);
-    // }
-    // printf("Enter text: ");
-    // int symbol;
-    // while (symbol != '\n')
-    // {
-    //     symbol = getchar();
-    //     putchar(symbol);
-    // }
-       show_num(65);
+    float price = 0;
+    float weight = 0;
 
-    int x1 = getchar();
-
-    printf("This: %d %c\n", x1, x1);
-
-
-    //double fex;
-    //printf("The size of: %lu\n", sizeof(char));
-
+    int res = scanf("%*d; %f; %f", &price, &weight);
+    printf("Price - %.2f\nWeight - %.2f\n", price, weight);
 
     return 0;
 }
