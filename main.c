@@ -1,52 +1,19 @@
-#include <stdio.h>
-#include <time.h>
-#define C_LEARN 1
-#define PYTHON_LEARN 2
-#define JAVA_LEARN 3
-#define RUST_LEARN 4
+#define CLANG
+
+#if defined(CLANG)
+#   include <stdio.h>
+#else 
+#   include <iostream> 
+#endif
+
 
 int main(void) {
 
-    clock_t start = clock();    
-
-    short item;
-    printf("1 C\n"
-           "2 Python\n"
-            "3 Java\n"
-            "4 Rust\n"
-        );
-
-    if ((scanf("%hd", &item)) != 1)
-    {
-        printf("Error\n");
-        return 0;
-    };
-    switch (item)
-    {
-    case C_LEARN:
-        printf("Learn C\n");
-        break;
-    
-    case PYTHON_LEARN:
-        printf("Learn Python\n"); 
-        break;
-
-    case JAVA_LEARN:
-        printf("Learn Java\n");
-        break;        
-    
-    case RUST_LEARN:
-        printf("Learn Rust\n");
-        break;        
-
-    default:
-        printf("Exit\n");
-        break;
-    }
-
-    clock_t end = clock();
-    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
-    printf("Time taken: %lf\n", time_taken);
-
+    short x = 3;
+#ifdef CLANG
+    printf("%hd\n", x);
+#else
+    std::cout << x << std::endl;
+#endif
     return 0;
 }
