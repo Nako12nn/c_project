@@ -1,13 +1,9 @@
 #include <stdio.h>
 #include <time.h>
-#define C_LEARN 1
-#define PYTHON_LEARN 2
-#define JAVA_LEARN 3
-#define RUST_LEARN 4
 
-int main(void) {
+int main(void){
 
-    clock_t start = clock();    
+    clock_t start = clock();
 
     short item;
     printf("1 C\n"
@@ -23,19 +19,19 @@ int main(void) {
     };
     switch (item)
     {
-    case C_LEARN:
+    case 1:
         printf("Learn C\n");
         break;
-    
-    case PYTHON_LEARN:
-        printf("Learn Python\n"); 
+    case 2:
+        printf("Learn Python\n"); // break переходить до іншого оператора 
+                                  // return просто завершує роботу цеї функції 
         break;
 
-    case JAVA_LEARN:
+    case 3:
         printf("Learn Java\n");
         break;        
     
-    case RUST_LEARN:
+    case 4:
         printf("Learn Rust\n");
         break;        
 
@@ -47,6 +43,6 @@ int main(void) {
     clock_t end = clock();
     double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Time taken: %lf\n", time_taken);
-
+    
     return 0;
 }
