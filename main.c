@@ -1,19 +1,22 @@
-#define CLANG
-
-#if defined(CLANG)
-#   include <stdio.h>
-#else 
-#   include <iostream> 
-#endif
-
+#include <stdio.h>
 
 int main(void) {
 
-    short x = 3;
-#ifdef CLANG
-    printf("%hd\n", x);
-#else
-    std::cout << x << std::endl;
-#endif
+    short n;
+    unsigned int s = 0;
+
+    printf("Enter amount of times: ");
+    if (scanf("%hd", &n) != 1)
+    {
+        printf("Error\n");
+        return 0;
+    }
+    
+    short i = 0;
+    while (++i <= n && i <= 20) // firstly --n then n > 0
+        s += (i * i);
+    
+    printf("The sum: %u\n", s);
+
     return 0;
 }
