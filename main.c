@@ -1,22 +1,34 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
+    // int m, n;
+    // if (scanf("%d", &n) != 1) return 0;
 
-    short n;
-    unsigned int s = 0;
+    // for (m = 0; n > 0; --n) 
+    // {
+    //     m += (n * n);
+    // }
+    // printf("%d\n", m);
 
-    printf("Enter amount of times: ");
-    if (scanf("%hd", &n) != 1)
+
+
+    // int till;
+    // if (scanf("%d", &till) != 1 || till > 20) return 0;
+
+    // long long fuct = 1;
+
+    // for (int i = 1; i <= till; fuct *= i, ++i)
+    // { }
+    
+    // printf("%lld\n", fuct);
+
+
+    for (int i = rand() % 10; i != 0; i = rand() % 10)
     {
-        printf("Error\n");
-        return 0;
+        printf("i = %d\n", i);
     }
     
-    short i = 0;
-    while (++i <= n && i <= 20) // firstly --n then n > 0
-        s += (i * i);
-    
-    printf("The sum: %u\n", s);
 
     return 0;
 }
