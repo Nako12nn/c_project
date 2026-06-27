@@ -1,56 +1,53 @@
 #include <stdio.h>
-#include <math.h>
 
 int main(void) {
     
-    // short pass_code = 121;
-    // short taken_code;
-    // int buf;
-
-    // do {
-    //     printf("Enter the pass code: ");
-    //     if(scanf("%hd", &taken_code) != 1) return 0;
-
-    //     while ((buf = getchar()) != '\n' && buf != EOF)
-    //     { }
+    // float t, s;
+    // printf("Enter a num ");
+    // while (scanf("%f", &t) == 1) {
         
-    // } while (taken_code != pass_code);
-    // printf("Access allowed ->");
-
-
-    // short total_boxes = 3;
-    // short total_files = 4;
-
-    // for (short i = 0; i < total_boxes; i++)
-    // {
-    //     printf("///Box %hd\n", i+1);
-    //     for (short j = 0; j < total_files; j++)
-    //     {
-    //         printf("File %hd\n", j+1);
-    //     }
-    //     printf("\n");
+    //     if (t < 0) return 0; or break;
+    //     s += t;
     // }
+    // printf("%.2f\n", s);
+
+
+
+    // int q = 0;
+    // int w = 0;
+    // printf("Enter a num %d", q);
+    // while (scanf("%d", &w) == 1 && w != 0) {
+        
+    //     if (w % 2 == 0)continue;
+        
+    //     q += w;
+    // }
+    // printf("%d\n", q);
+
+
+
     
+    // for (int i = 0; i <= 100; i++) {
+    //     if (i % 3 ==0 && i % 5 ==0) printf("%3d\n", i);
+    // }
 
 
-    int summa = 0;
-    short i_end = 7;
-    short j_end = 5;
-    short k_end = 4;
 
-    for (short i = -3; i <= i_end; i++)
+    int sum = 0;
+
+    for (int i = 1; i <= 10; ++i)
     {
-        for (short j = 1; j <= j_end; j++)
+        for (int j = 7; j >= 5; --j)
         {
-            for (short k = 2; k <= k_end; k++)
-            {
-                summa += (i + j - k) * (i + j - k);
-            }
-            
+            if ((i - j) > 0) goto exit_sum;
+
+            sum += (i - j);
         }
         
     }
+    exit_sum: printf("The sum = %d\n", sum); 
     
-    printf("%d\n", summa);
+    
+
     return 0;
 }
