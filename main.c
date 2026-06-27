@@ -1,53 +1,42 @@
 #include <stdio.h>
 
-int main(void) {
+int main(void) { 
     
-    // float t, s;
-    // printf("Enter a num ");
-    // while (scanf("%f", &t) == 1) {
-        
-    //     if (t < 0) return 0; or break;
-    //     s += t;
-    // }
-    // printf("%.2f\n", s);
+// myptr -> &d
+// *myptr -> d
+
+    // int d = 16;
+    // int *myptr = &d; // the same type as up. initialization!
+    // //myptr = &d; make to the myptr adress of d. insted of this you can write: char *myptr = &d;
+    // printf("myptr = %p *myptr = %d d = %d\n", myptr, *myptr, d); 
+    // *myptr = 22341;
+    // printf("myptr = %p *myptr = %d d = %d\n", myptr, *myptr, d); 
+
+    // int argument = 7;
+    // int *first_ptr, *second_ptr;
+
+    // first_ptr = &argument;
+    // second_ptr = first_ptr;
+
+    // printf("Arg = %d \n*first_ptr = %d \n*second_ptr = %d\n", argument, *first_ptr, *second_ptr);
+
+    // *first_ptr = 9;
+    // printf("%d")
 
 
+    int x = 11;
+    int *ptr = &x;
+    printf("x = %d\n*ptr = %d\nptr = %p\n", x, *ptr, ptr);
 
-    // int q = 0;
-    // int w = 0;
-    // printf("Enter a num %d", q);
-    // while (scanf("%d", &w) == 1 && w != 0) {
-        
-    //     if (w % 2 == 0)continue;
-        
-    //     q += w;
-    // }
-    // printf("%d\n", q);
+    int temp = 0;
+    int *ptr2 = &temp;
+
+    if (ptr2 != NULL) *ptr2 = 12;
 
 
-
-    
-    // for (int i = 0; i <= 100; i++) {
-    //     if (i % 3 ==0 && i % 5 ==0) printf("%3d\n", i);
-    // }
+    printf("*ptr2 = %d\n&ptr= %p\n", *ptr2, ptr2);
 
 
-
-    int sum = 0;
-
-    for (int i = 1; i <= 10; ++i)
-    {
-        for (int j = 7; j >= 5; --j)
-        {
-            if ((i - j) > 0) goto exit_sum;
-
-            sum += (i - j);
-        }
-        
-    }
-    exit_sum: printf("The sum = %d\n", sum); 
-    
-    
 
     return 0;
 }
