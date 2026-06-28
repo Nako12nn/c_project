@@ -1,57 +1,93 @@
 #include <stdio.h>
-#define PUBLIC_KEY_E 65537
-
-int rsa_alg(unsigned long q, unsigned long p){
-    unsigned long long n = q * p;
-    unsigned long long z = (q - 1) * (p - 1);
-    unsigned long long d = 0;
-
-    if (z <= 1) return 0;
-    //unsigned long some = (PUBLIC_KEY_E * 2) % z;
-
-    for (int i = z; i <= n * z; i++)
-    {
-        unsigned long some = (PUBLIC_KEY_E * i) % z;                    
-        printf("for loop: %d\n", i);
-        if (some == 1) {
-            printf("some == 1 now: %lu\nThe i = %d\n", some, i);
-            printf("if: %d\n", i);
-            d += i;
-            break;
-        }
-        
-    }
-    
-    
-
-
-    //printf("Time = %lu\n", time);
-    printf("n = %llu \nz = %llu \ne = %d \nd = %llu", n, z, PUBLIC_KEY_E, d);
-    return 0;
-}
 
 int main(void) { 
     
-    //char x; // We declare a change, and at this moment a 1-byte (8 bit) cell is allocated
-    //int het = 60500; //in 4 cells (4 bytes) is placed that variable
-    // A pointer itself stores the address of a variable ptr -> adrress
+    // short my_num = 100;
+    // short *your_num = &my_num; // initialization of pointer
 
-    // short num1;
-    // short *n1_adress = &num1;
-    // printf("Before:   adress(n1_adress) = %p\n", n1_adress);
+    // printf("//// Example how to call poiter: \n");
+    // printf("The value from variable(my_num) = %hd\n", my_num);
+    // printf("The value from pointer(*your_num) = %hd\n", *your_num);
+    // printf("The adress from pointer(your_num) = %p\n\n", your_num);
 
-    // if (scanf("%hd", &num1) != 1) return 0;
-    // printf("After:    adress(n1_adress) = %p\n",n1_adress);
-    
-    // printf("Adress num1:  %lu\n", (unsigned long)&num1);
+    // *your_num = 7; // change of my_num value and an assignment operations takes place here
 
-    printf("Enter q and p secret values: \n");
-    
-    unsigned long a;
-    unsigned long b;
-    if (scanf("%lu %lu", &a, &b) == 2) rsa_alg(a, b);
-    printf("\n");
+    // printf("//// Example after a change: \n");
+    // printf("2 The value from variable(my_num) = %hd\n", my_num);
+    // printf("2 The value from pointer(*your_num) = %hd\n", *your_num);
+    // printf("2 The adress from pointer(your_num) = %p\n\n", your_num);
+/// the examples show us that adress of cell stays the same, we can change value in that cell using *ptr
     
 
+    // int stan_num = 19;
+    // int *stan_ptr, *pre_ptr;
+
+    // stan_ptr = &stan_num; // assign to stan_ptr adress of stan_num, 
+    // pre_ptr = stan_ptr; // assign to pre_ptr adress of stan_ptr which refers to adress of stan_num
+
+    // printf("//// Example3: \n");
+    // printf("3 The value from variable(stan_num) = %d\n", stan_num);
+    // printf("3 The adress from pointer(stan_ptr) = %p\n", stan_ptr);
+    // printf("3 The adress from pointer(pre_ptr) = %p\n", pre_ptr);
+    // printf("3 The value from pointer(*stan_ptr) = %d\n", *stan_ptr);
+    // printf("3 The value from pointer(*pre_ptr) = %d\n\n", *pre_ptr);
+
+    // *stan_ptr = 22;
+    // printf("4 The value from variable(stan_num) = %d\n", stan_num); // as we changed the value by means of *stan_ptr it = 22
+    // printf("4 The adress from variable(stan_num) = %p\n\n", &stan_num); // stays the same 
+
+
+    // *pre_ptr = 13;
+    // printf("5 The value from variable(stan_num) = %d\n", stan_num); // as we changed the value by means of *pre_ptr it = 13
+    // printf("5 The adress from variable(stan_num) = %p\n", &stan_num); // stays the same
+/// we can change the value using *pointer = x;
+
+
+    int newr = 777;
+    int *firs;
+    char *secd;
+
+    firs = &newr;
+    secd = (char *)firs; // there was:  secd = firs;  the program works in the same way -> 769
+    //// Type conversion should be performed when the types are different 
+
+    printf("The value from variable(newr) before = %d\n\n", newr); 
+    /* int has 4 bytes(cells) and char - 1; initially the number 777 is represented in bytes like this 9 * 256^0 + 
+    + 3 * 256^1 + 0 * 256^2 + 0 * 256^3 == 777 
+    and when we using CHAR secd assign to newr 1 it is meant that in the first cell is put 1 ->
+    __1__  * 256^0 + 3 * 256^1 + 0 * 256^2 + 0 * 256^3 == 769 */
+    
+    *secd = 1;
+    printf("The value from variable(newr) after = %d\n\n", newr);
+
+    /*if we need assign to pointer another one with other type we have to convert the types to a single type 
+    example:
+    int some = 120;
+    int *myptr = &some;
+    char *newptr;
+||  newptr = (char *)myptr
+    *newptr = 99;          */
+
+    
+    // in this case type conversion should not be performed
+    int initl = 25;
+    int *thisp = &initl;
+    short *nbv;
+    void *p;
+
+    p = thisp;
+    nbv = p;
+
+    //printf("the adress = %d\n", *p);  you must not use void ptrs for working with cells only with adresses
+    printf("the adress = %p\n", p);
+    printf("the value = %d\n", *nbv);
+
+    *nbv = 36;
+
+    printf("the value = %d\n", *nbv);
+
+
+
+    
     return 0;
 }
