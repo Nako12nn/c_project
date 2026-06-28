@@ -1,5 +1,4 @@
- // while (x <= n)
+for (int i = 2; some != 1; i++)
     // {
-    //     sum += (x * x);
-    //     x++;
+    //     unsigned long new_func;
     // }

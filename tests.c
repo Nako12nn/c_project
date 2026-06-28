@@ -1,15 +1,22 @@
 #include <stdio.h>
-#include <time.h>
-
 int main(void){
 
-    clock_t start = clock();
+    long d = 500743;
+    long z = 250738;
+    int e = 65537;
+    // unsigned long some = d * e;
+    // unsigned long fil = some % z;
 
-    // functions 
-
-    clock_t end = clock();
-    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
-    printf("Time taken: %lf\n", time_taken);
-    
+    if (((e * d) % z) == 1)
+    {   
+        printf("Finally... \n");
+        //printf("Finally = %lu\n", fil);
+    }
+    else
+    {
+        printf("Error...\n");
+        //printf("Error = %lu\n", fil);
+    }
+        
     return 0;
 }
