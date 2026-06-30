@@ -1,4 +1,3 @@
-for (int i = 2; some != 1; i++)
-    // {
-    //     unsigned long new_func;
-    // }
+for (int i = 0; i < 7; ++i) {
+        printf("%d ", array[i]);
+    }

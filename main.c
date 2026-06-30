@@ -1,47 +1,82 @@
 #include <stdio.h>
+//#define TOTAL_MARKS 10
 
 int main(void) { 
-
-//     short arr[] = {7, 4, 6, 3, 2, 0, 7};
-//     const short *ptr_arr; // using poiter ptr_arr we cant change values in the memory cells but can change adress 
-
-//     ptr_arr = arr;
-//     printf("%p\n", &ptr_arr); // you can
-//     printf("%hd\n", *ptr_arr);
-// //ptr_arr[0] = 2; // you cannot -> read-only variable
-
-//     ptr_arr++;
-//     printf("%hd\n", *ptr_arr);
+/// coping
+//     float func_1[100] = {2.3, 3.1, -1.5, 4.5, 3.6, -2.5, 3.1, 6.6, [99] = 9.1};
+//     float *ptr_func1 = func_1;
+    
+//     float func_2[50];
+//     float *ptr_func2 = func_2;
 
 
-
-//     unsigned short new_arr[] = {4, 3, 6, 4, 7, 2, 0};
-//     unsigned short * const ptr_new = new_arr; // initialization - yes, assignment - no, addres cant be changed 
-
-//     //ptr_new = new_arr; cannot
-//     short x = ptr_new[0];
-//     //ptr_new++; cannot
+//     int size1 = sizeof(func_1) / sizeof(*func_1); // 100     x    y 
+//     int size2 = sizeof(func_2) / sizeof(*func_2); // 50
+//     int size_ttl = (size1 > size2) ? size1 : size2; // ternar operation
 
 
-    short array1[] = {5, 7, 4, 7, 3, 2, 6, 5};
-    const short *ptr_arr1 = array1; // r--
-    short *ptr_arr2 = array1; // rw-
-    //ptr_arr2 = ptr_arr1; cant do that but can the other way around ptr_arr1 = ptr_arr2;
-
-    ptr_arr2[2] = 7;
-    short x = ptr_arr1[2];
-    printf("%hd\n", x);
+//     for (int i = 0; i < size_ttl; i++)
+//         ptr_func2[i] = ptr_func1[i];
+    
+//     // for (int i = 0; i < size_ttl; ++i)
+//     //     printf("%.2f ", func_2[i]);
 
 
-    const int w = 4; // r--
+// /// insertion 
+//     int marks[TOTAL_MARKS] = {7, 8, 4, 3, 11};
+//     int insrt_indx = 3;
 
-    w++;
+//     for (int i = TOTAL_MARKS - 1; i > insrt_indx; --i) {
+//         marks[i] = marks[i-1];
+//         printf("marks[%d] - marks[%d]\n", i, i-1);
+//     }
+
+//     marks[insrt_indx] = 12;
+
+//     for (int i = 0; i < TOTAL_MARKS; ++i) {
+//         printf("%d ", marks[i]);
+//     }
 
 
+// removement
+    // int marks[TOTAL_MARKS] = {11, 12, 9, 3, 10};
+    // int rm_indx = 3;
+
+    
+    // for (int i = rm_indx; i < TOTAL_MARKS - 1; ++i) {
+    //     marks[i] = marks[i + 1];
+    // }
+
+    // for (int i = 0; i < TOTAL_MARKS; ++i) {
+    // printf("%d ", marks[i]);
+    // }
 
 
+// sort by choice
+    int array[] = {10, 4, 1, -6, -7, 5, 0};
+    int size_array = sizeof(array) / sizeof(array[0]);
+    int favoe;
 
-  
+    for (int i = 0; i < size_array - 1; ++i) {
+        favoe = i;
+        for (int j = i+1; j < size_array; ++j) {
+            if (array[favoe] > array[j])
+                favoe = j;
+        }
+
+            if (favoe != i)
+            {
+                int t = array[i];
+                array[i] = array[favoe];
+                array[favoe] = t;
+            }
+            
+    }
+
+    for (int i = 0; i < size_array; ++i) {
+        printf("%d ", array[i]);
+    }
+
 
     return 0;
 }
