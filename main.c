@@ -2,47 +2,46 @@
 
 int main(void) { 
 
-   short arr[] = {7, 4, 6, 3, 2, 0, 7}; // arr points on the first element of the array
+//     short arr[] = {7, 4, 6, 3, 2, 0, 7};
+//     const short *ptr_arr; // using poiter ptr_arr we cant change values in the memory cells but can change adress 
 
-   short arr_el1 = *arr;
-   printf("The first element: %hd\n", arr_el1);
-   printf("Too: %hd\n", arr[0]);
-// a name of an array can be taken as a poiter 
+//     ptr_arr = arr;
+//     printf("%p\n", &ptr_arr); // you can
+//     printf("%hd\n", *ptr_arr);
+// //ptr_arr[0] = 2; // you cannot -> read-only variable
 
-    short arr_el5 = *(arr+4); // adress arythmetic 
-    printf("the 5 el: %hd\n\n", arr_el5);
-
-
-    for (int i = 0; i < sizeof(arr) / sizeof(*arr); i++) // sizeof bytes taken by array / sizeof bytes taken by first element
-    {
-        printf("%hd ", *(arr + i));
-    }
-    printf("\n\n");
+//     ptr_arr++;
+//     printf("%hd\n", *ptr_arr);
 
 
-    short array1[] = {10, 6, 5, 3, 7, 8, 1, 0};
-    short *ptr_arr;
 
-    ptr_arr = array1;
-    //ptr_arr = &array1[0];  // the same as above but the above's better
+//     unsigned short new_arr[] = {4, 3, 6, 4, 7, 2, 0};
+//     unsigned short * const ptr_new = new_arr; // initialization - yes, assignment - no, addres cant be changed 
 
-    short x = *ptr_arr;
-    printf("x = %hd\n", x);
-
-    *(ptr_arr+1) = 1;
-    short y = *(ptr_arr+1);
-    printf("y = %hd\n\n", y);
+//     //ptr_new = new_arr; cannot
+//     short x = ptr_new[0];
+//     //ptr_new++; cannot
 
 
-    size_t len_1 = sizeof(array1); // bytes of all array 
-    size_t len_2 = sizeof(*ptr_arr);
+    short array1[] = {5, 7, 4, 7, 3, 2, 6, 5};
+    const short *ptr_arr1 = array1; // r--
+    short *ptr_arr2 = array1; // rw-
+    //ptr_arr2 = ptr_arr1; cant do that but can the other way around ptr_arr1 = ptr_arr2;
 
-    printf("1 = %zu\n", len_1);
-    printf("2 = %zu\n", len_2);
+    ptr_arr2[2] = 7;
+    short x = ptr_arr1[2];
+    printf("%hd\n", x);
 
 
-    short nice = ptr_arr[7];
-    printf("nice = %hd\n", nice);
+    const int w = 4; // r--
+
+    w++;
+
+
+
+
+
+  
 
     return 0;
 }
