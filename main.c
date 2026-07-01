@@ -1,30 +1,29 @@
 #include <stdio.h>
 
 int main(void) { 
+//output
+    char str[] = {"Im okey with it"};
+    printf("str = %s\n", "that is it");
+    puts(str); // does \n on its own 
+    puts(str);
+
+
+//input
+    char my_str[10];
+    //fgets(my_str, sizeof(my_str), stdin); // buffer, how many item it reads (n-1, cause in the last cell - \0), where we read from
     
-//     char str[] = {'N', 'a', 'k', 'o', 'n', 'e', 'c', 'h', 'n', 'y', 'i', '\0'};// \0 shows the end of string!
-//     char s[] = "Maksym Nakonechnyi";
-//     char buffer[32] = "Hello, guys";
+    //scanf("%9s", my_str); // %9s - max 9 elements to read from input
+    //puts(my_str);
+    // scanf - no, gets - no!
 
-//     char b[] = "The" "re"
-//             " we go";
+    int max_read = sizeof(my_str), i = 0;
+    char *ptr_max = my_str, ch;
 
-//     char ni[] = "how are \
-// you";
+    while ((ch = getchar()) != '\n' && ch != EOF && i < max_read) 
+        ptr_max[i++] = ch;
 
-    // const char *ptr_s = "Nakonechnyi"; //read-only, it is placed in unchangable memory area
-    // char s[] = "Nakonechnyi"; // can change
+    ptr_max[i] = '\0';
 
-    // //ptr_s[1] = 'n'; error
-    // s[1] = 'A';
-
-
-
-    char d[] = "You like program in \"C\" Language?";
-    puts(d);
-
-    char string[] = "\x61 \x4f";
-    puts(string);
-
+    puts(my_str);
     return 0;
 }
